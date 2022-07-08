@@ -113,18 +113,30 @@ vector<dot> colocar_matriz(vector<dot> s) {
   mostrar_matriz();
   switch (choice) {
     case 's':
-      if (matrix[s[0].y + 1][s[0].x] == '#') lose();
+      if (s[0].y + 1 == s[2].y && s[0].x == s[2].x){
+        choice = 'w'; break;
+      }
+      else if (matrix[s[0].y + 1][s[0].x] == '#') lose();
       s[0].y++;
       break;
     case 'w':
+      if (s[0].y - 1 == s[2].y && s[0].x == s[2].x){
+        choice = 's'; break;
+      }
       if (matrix[s[0].y - 1][s[0].x] == '#') lose();
       s[0].y--;
       break;
     case 'a':
+      if (s[0].y == s[2].y && s[0].x - 1 == s[2].x){
+        choice = 'd'; break;
+      }
       if (matrix[s[0].y][s[0].x - 1] == '#') lose();
       s[0].x--;
       break;
     case 'd':
+      if (s[0].y == s[2].y && s[0].x + 1 == s[2].x){
+        choice = 'a'; break;
+      }
       if (matrix[s[0].y][s[0].x + 1] == '#') lose();
       s[0].x++;
       break;
